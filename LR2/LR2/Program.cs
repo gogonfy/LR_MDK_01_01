@@ -76,6 +76,14 @@ namespace LR4
                     ordered
                 );
 
+                // Подзадача 5
+                Functions.UpdateQuantities(
+                    quantities,
+                    ordered,
+                    names
+                );
+            }
+
 
 
    

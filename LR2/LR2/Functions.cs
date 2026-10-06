@@ -147,3 +147,33 @@ namespace LR4
 
             return totalPrice;
         }
+
+        // Изменение остатков
+        public static void UpdateQuantities(
+            int[] quantities,
+            int[] ordered,
+            string[] names)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Расчёт новых остатков:");
+
+            for (int i = 0; i < quantities.Length; i++)
+            {
+                if (ordered[i] > 0)
+                {
+                    int oldQuantity = quantities[i];
+                    int orderQuantity = ordered[i];
+
+                    // Новый остаток
+                    int newQuantity = oldQuantity - orderQuantity;
+
+                    Console.WriteLine(
+                        $"{oldQuantity} - {orderQuantity} = {newQuantity} шт. ({names[i]})"
+                    );
+
+                    quantities[i] = newQuantity;
+                }
+            }
+        }
+
+        
