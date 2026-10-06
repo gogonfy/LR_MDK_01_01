@@ -7,7 +7,8 @@ namespace LR1
     {
         static void Main(string[] args)
         {
-            
+            // Создаем экземпляр класса Work
+            Work work = new Work();
         }
     }
 }
