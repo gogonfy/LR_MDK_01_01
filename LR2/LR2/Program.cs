@@ -84,6 +84,17 @@ namespace LR4
                 );
             }
 
+            // Подзадача 6
+            Functions.ShowRemaining(
+                names,
+                quantities
+            );
 
 
-   
+            Console.WriteLine();
+            Console.WriteLine("Нажмите любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
+

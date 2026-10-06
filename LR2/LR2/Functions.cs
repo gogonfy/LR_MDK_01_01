@@ -176,4 +176,31 @@ namespace LR4
             }
         }
 
-        
+        // Вывод остатков
+        public static void ShowRemaining(
+            string[] names,
+            int[] quantities)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Остатки цветов:");
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                Console.WriteLine(
+                    $"{names[i]} — {quantities[i]} шт."
+                );
+            }
+        }
+
+        // Вывод сообщения о нехватке
+        public static void ShowNotEnough(
+            string[] names,
+            int index)
+        {
+            Console.WriteLine();
+            Console.WriteLine(
+                $"Недостаточно цветов: {names[index]}."
+            );
+        }
+    }
+}
