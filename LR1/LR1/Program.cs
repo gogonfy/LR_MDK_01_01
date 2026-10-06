@@ -28,6 +28,11 @@ namespace LR1
             else
                 classification = "Высококалорийное блюдо";
 
+            // Вывод результатов
+            work.PrintResults(totalCalories, caloriesPerPortion, classification);
+
+            Console.WriteLine("Нажмите любую клавишу для выхода...");
+            Console.ReadKey();
         }
     }
 }
