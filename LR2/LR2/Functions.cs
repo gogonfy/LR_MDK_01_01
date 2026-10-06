@@ -66,3 +66,26 @@ namespace LR4
                 );
             }
         }
+
+        // Формирование заказа
+        public static void CreateOrder(
+            int[] ordered)
+        {
+            while (true)
+            {
+                int number = GetFlowerNumber();
+
+                // 0 — завершение заказа
+                if (number == 0)
+                {
+                    break;
+                }
+
+                int quantity = GetQuantity();
+
+                // Добавляем количество к выбранному цветку
+                ordered[number - 1] += quantity;
+
+                Console.WriteLine();
+            }
+        }

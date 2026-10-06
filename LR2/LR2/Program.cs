@@ -36,6 +36,19 @@ namespace LR4
                 40
             };
 
-            
+            // Количество заказанных цветов
+            int[] ordered = new int[5];
+
+
+            // Подзадача 1
+            Functions.ShowAssortment(
+                names,
+                prices,
+                quantities
+            );
+
+
+            // Подзадачи 2-3
+            Functions.CreateOrder(ordered);
 
    
