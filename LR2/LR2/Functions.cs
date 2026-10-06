@@ -89,3 +89,61 @@ namespace LR4
                 Console.WriteLine();
             }
         }
+
+        // Проверка наличия цветов
+        public static bool CheckAvailability(
+            int[] quantities,
+            int[] ordered,
+            out int notEnoughFlower)
+        {
+            notEnoughFlower = -1;
+
+            for (int i = 0; i < quantities.Length; i++)
+            {
+                if (ordered[i] > quantities[i])
+                {
+                    notEnoughFlower = i;
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Расчёт стоимости заказа
+        public static int CalculatePrice(
+            string[] names,
+            int[] prices,
+            int[] ordered)
+        {
+            int totalPrice = 0;
+
+            Console.WriteLine();
+            Console.WriteLine("Расчёт стоимости:");
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (ordered[i] > 0)
+                {
+                    int price = prices[i];
+                    int quantity = ordered[i];
+
+                    // Стоимость данного вида цветов
+                    int result = price * quantity;
+
+                    Console.WriteLine(
+                        $"{price} × {quantity} = {result} руб. ({names[i]})"
+                    );
+
+                    // Добавляем к общей стоимости
+                    totalPrice += result;
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(
+                $"Итого: {totalPrice} руб."
+            );
+
+            return totalPrice;
+        }

@@ -51,4 +51,31 @@ namespace LR4
             // Подзадачи 2-3
             Functions.CreateOrder(ordered);
 
+            // Проверяем наличие всех цветов
+            bool available = Functions.CheckAvailability(
+                quantities,
+                ordered,
+                out int notEnoughFlower
+            );
+
+
+            if (!available)
+            {
+                // Если какого-то цветка не хватает
+                Functions.ShowNotEnough(
+                    names,
+                    notEnoughFlower
+                );
+            }
+            else
+            {
+                // Подзадача 4
+                Functions.CalculatePrice(
+                    names,
+                    prices,
+                    ordered
+                );
+
+
+
    
