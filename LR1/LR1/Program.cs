@@ -15,6 +15,19 @@ namespace LR1
             double fats = work.GetInput("Введите жиры (г): ", "жиров");
             double carbohydrates = work.GetInput("Введите углеводы (г): ", "углеводов");
             int portions = work.GetPortionsInput();
+
+            // Расчеты
+            double totalCalories = proteins * 4 + fats * 9 + carbohydrates * 4;
+            double caloriesPerPortion = totalCalories / portions;
+
+            string classification;
+            if (totalCalories < 200)
+                classification = "Низкокалорийное блюдо";
+            else if (totalCalories < 500)
+                classification = "Блюдо средней калорийности";
+            else
+                classification = "Высококалорийное блюдо";
+
         }
     }
 }
