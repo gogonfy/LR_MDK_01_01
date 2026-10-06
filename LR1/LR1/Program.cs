@@ -9,6 +9,12 @@ namespace LR1
         {
             // Создаем экземпляр класса Work
             Work work = new Work();
+
+            // Ввод данных
+            double proteins = work.GetInput("Введите белки (г): ", "белков");
+            double fats = work.GetInput("Введите жиры (г): ", "жиров");
+            double carbohydrates = work.GetInput("Введите углеводы (г): ", "углеводов");
+            int portions = work.GetPortionsInput();
         }
     }
 }
