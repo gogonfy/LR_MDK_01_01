@@ -7,16 +7,16 @@ namespace LR1
     {
         static void Main(string[] args)
         {
-            // Создаем экземпляр класса Work
+            //Создаем экземпляр класса Work
             Work work = new Work();
 
-            // Ввод данных
+            //Ввод данных
             double proteins = work.GetInput("Введите белки (г): ", "белков");
             double fats = work.GetInput("Введите жиры (г): ", "жиров");
             double carbohydrates = work.GetInput("Введите углеводы (г): ", "углеводов");
             int portions = work.GetPortionsInput();
 
-            // Расчеты
+            //Расчеты
             double totalCalories = proteins * 4 + fats * 9 + carbohydrates * 4;
             double caloriesPerPortion = totalCalories / portions;
 
@@ -28,7 +28,7 @@ namespace LR1
             else
                 classification = "Высококалорийное блюдо";
 
-            // Вывод результатов
+            //Вывод результатов
             work.PrintResults(totalCalories, caloriesPerPortion, classification);
 
             Console.WriteLine("Нажмите любую клавишу для выхода...");
