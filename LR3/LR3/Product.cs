@@ -26,5 +26,10 @@ namespace LR3
         {
             return price_;
         }
+
+        public int GetQuantity()
+        {
+            return quantity_;
+        }
     }
 }
