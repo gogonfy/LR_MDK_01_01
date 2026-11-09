@@ -75,5 +75,37 @@ namespace LR3
         {
             return value >= min && value <= max;
         }
+
+        private static int ReadNonNegativeInt(string prompt)
+        {
+            int value = 0;
+            bool isValid = false;
+
+            for (int attempt = 0; !isValid; attempt++)
+            {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+
+                if (!int.TryParse(input, out value))
+                {
+                    Console.WriteLine("Ошибка: введите целое число.");
+                }
+                else if (IsNegative(value))
+                {
+                    Console.WriteLine("Ошибка: количество не может быть отрицательным.");
+                }
+                else
+                {
+                    isValid = true;
+                }
+            }
+
+            return value;
+        }
+
+        private static bool IsNegative(int value)
+        {
+            return value < 0;
+        }
     }
 }
