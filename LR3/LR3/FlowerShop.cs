@@ -7,6 +7,7 @@ namespace LR3
     /// </summary>
     public class FlowerShop
     {
+        // Массив ассортимента и массив выбранных количеств по позициям.
         private readonly Product[] assortment_;
         private readonly int[] requested_;
 
@@ -22,6 +23,25 @@ namespace LR3
             };
 
             requested_ = new int[assortment_.Length];
+        }
+
+        public void PrintAssortment()
+        {
+            Console.WriteLine("Ассортимент:");
+
+            for (int i = 0; i < assortment_.Length; i++)
+            {
+                Product product = GetProduct((ProductType)(i + 1));
+                Console.WriteLine("{0}. {1} — {2} руб., {3} шт.",
+                    i + 1, product.GetName(), product.GetPrice(), product.GetQuantity());
+            }
+        }
+
+        private Product GetProduct(ProductType type)
+        {
+            // Значения enum начинаются с 1, поэтому индекс массива на единицу меньше.
+            int index = (int)type - 1;
+            return assortment_[index];
         }
     }
 }
