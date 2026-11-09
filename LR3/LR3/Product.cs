@@ -16,5 +16,10 @@ namespace LR3
             price_ = price;
             quantity_ = quantity;
         }
+
+        public string GetName()
+        {
+            return name_;
+        }
     }
 }
