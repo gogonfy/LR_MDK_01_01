@@ -36,5 +36,10 @@ namespace LR3
         {
             return price_ * quantity;
         }
+
+        public bool HasEnough(int quantity)
+        {
+            return quantity_ >= quantity;
+        }
     }
 }
