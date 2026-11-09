@@ -21,5 +21,10 @@ namespace LR3
         {
             return name_;
         }
+
+        public int GetPrice()
+        {
+            return price_;
+        }
     }
 }
