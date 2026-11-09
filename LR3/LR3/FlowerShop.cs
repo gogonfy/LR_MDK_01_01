@@ -155,5 +155,22 @@ namespace LR3
 
             return true;
         }
+
+        public void PrintStocks()
+        {
+            Console.Write("Остатки цветов: ");
+
+            for (int i = 0; i < assortment_.Length; i++)
+            {
+                if (i > 0)
+                {
+                    Console.Write(", ");
+                }
+
+                Console.Write("{0} {1}", assortment_[i].GetName(), assortment_[i].GetQuantity());
+            }
+
+            Console.WriteLine();
+        }
     }
 }
