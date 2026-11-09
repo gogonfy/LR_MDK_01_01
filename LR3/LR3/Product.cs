@@ -41,5 +41,10 @@ namespace LR3
         {
             return quantity_ >= quantity;
         }
+
+        public void ReduceQuantity(int quantity)
+        {
+            quantity_ -= quantity;
+        }
     }
 }
