@@ -43,5 +43,37 @@ namespace LR3
             int index = (int)type - 1;
             return assortment_[index];
         }
+
+        private static int ReadIntInRange(string prompt, int min, int max)
+        {
+            int value = 0;
+            bool isValid = false;
+
+            for (int attempt = 0; !isValid; attempt++)
+            {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+
+                if (!int.TryParse(input, out value))
+                {
+                    Console.WriteLine("Ошибка: введите целое число.");
+                }
+                else if (!IsInRange(value, min, max))
+                {
+                    Console.WriteLine("Ошибка: число должно быть в диапазоне от {0} до {1}.", min, max);
+                }
+                else
+                {
+                    isValid = true;
+                }
+            }
+
+            return value;
+        }
+
+        private static bool IsInRange(int value, int min, int max)
+        {
+            return value >= min && value <= max;
+        }
     }
 }
