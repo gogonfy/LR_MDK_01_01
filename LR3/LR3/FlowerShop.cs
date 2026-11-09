@@ -126,5 +126,34 @@ namespace LR3
                 requested_[number - 1] += quantity;
             }
         }
+
+        public bool TryProcessOrder(out int totalCost, out string missingProductName)
+        {
+            totalCost = 0;
+            missingProductName = null;
+
+            // Сначала проверяем весь заказ: остатки нельзя списывать частично.
+            for (int i = 0; i < assortment_.Length; i++)
+            {
+                if (!assortment_[i].HasEnough(requested_[i]))
+                {
+                    missingProductName = assortment_[i].GetName();
+                    return false;
+                }
+            }
+
+            for (int i = 0; i < assortment_.Length; i++)
+            {
+                if (requested_[i] == 0)
+                {
+                    continue;
+                }
+
+                totalCost += assortment_[i].GetCost(requested_[i]);
+                assortment_[i].ReduceQuantity(requested_[i]);
+            }
+
+            return true;
+        }
     }
 }
