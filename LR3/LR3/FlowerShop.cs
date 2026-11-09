@@ -107,5 +107,24 @@ namespace LR3
         {
             return value < 0;
         }
+
+        public void ReadOrder()
+        {
+            // Очищаем корзину перед новым заказом.
+            for (int i = 0; i < requested_.Length; i++)
+            {
+                requested_[i] = 0;
+            }
+
+            const string numberPrompt = "Введите номер цветка (0 — конец заказа): ";
+
+            for (int number = ReadIntInRange(numberPrompt, 0, assortment_.Length);
+                 number != 0;
+                 number = ReadIntInRange(numberPrompt, 0, assortment_.Length))
+            {
+                int quantity = ReadNonNegativeInt("Введите количество: ");
+                requested_[number - 1] += quantity;
+            }
+        }
     }
 }
