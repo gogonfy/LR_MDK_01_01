@@ -9,6 +9,7 @@ namespace LR3
         {
             Console.OutputEncoding = Encoding.UTF8;
 
+            // Создаём магазин и показываем покупателю ассортимент.
             FlowerShop shop = new FlowerShop();
             shop.PrintAssortment();
             shop.ReadOrder();
@@ -24,6 +25,8 @@ namespace LR3
             {
                 Console.WriteLine("Недостаточно цветка: {0}.", missingProductName);
             }
+
+            shop.PrintStocks();
         }
     }
 }
