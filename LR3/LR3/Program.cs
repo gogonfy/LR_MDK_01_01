@@ -12,6 +12,18 @@ namespace LR3
             FlowerShop shop = new FlowerShop();
             shop.PrintAssortment();
             shop.ReadOrder();
+
+            int totalCost;
+            string missingProductName;
+
+            if (shop.TryProcessOrder(out totalCost, out missingProductName))
+            {
+                Console.WriteLine("Стоимость заказа: {0} руб.", totalCost);
+            }
+            else
+            {
+                Console.WriteLine("Недостаточно цветка: {0}.", missingProductName);
+            }
         }
     }
 }
